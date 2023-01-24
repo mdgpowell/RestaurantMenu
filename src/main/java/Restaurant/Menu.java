@@ -41,6 +41,10 @@ public class Menu {
     }
 
     public void addItem(MenuItem item) {
+        if (menuItems.contains(item)) {
+            System.out.println("Item is already on the menu!");
+            return;
+        }
         menuItems.add(item);
         lastUpdated = new Date();
 
