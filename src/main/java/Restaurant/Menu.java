@@ -29,13 +29,33 @@ public class Menu {
     private ArrayList<MenuItem> menuItems;
     private static Date lastUpdated;
 
-    public void addItem(MenuItem item) {
-
+    public Menu() {
+        menuItems = new ArrayList<MenuItem>();
+        lastUpdated = new Date();
     }
-    public void removeItem(MenuItem item) {
-
+    public ArrayList<MenuItem> getMenuItems() {
+        return menuItems;
     }
     public static Date getLastUpdated() {
         return lastUpdated;
     }
+
+    public void addItem(MenuItem item) {
+        menuItems.add(item);
+        lastUpdated = new Date();
+
+    }
+    public void removeItem(MenuItem item) {
+        menuItems.remove(item);
+        lastUpdated = new Date();
+    }
+    public String toString() {
+        String returnString = "\nMenu Items: ";
+        for (MenuItem item : menuItems) {
+            returnString += "\n"+ item.toString();
+        }
+        return returnString + "\n\nLast Updated: " + lastUpdated.toString();
+
+    }
+
 }

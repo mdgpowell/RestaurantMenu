@@ -6,6 +6,11 @@ public class MenuItem {
     private String category;
     private boolean newItem;
 
+    public MenuItem(double price, String description, String category) {
+        this.price = price;
+        this.description = description;
+        this.category = category;
+    }
     public double getPrice() {
         return price;
     }
@@ -32,5 +37,30 @@ public class MenuItem {
 
     public boolean isNewItem() {
         return newItem;
+    }
+
+    @Override
+    public String toString() {
+        return "\nCategory: " + category + "\nDescription: " + description + "\nPrice: $" + price;
+    }
+    @Override
+    public boolean equals(Object o) {
+        if (o == this) {
+            return true;
+        }
+        if (o == null) {
+            return false;
+        }
+        if (o.getClass() != getClass()) {
+            return false;
+        }
+        MenuItem item = (MenuItem) o;
+        if (getDescription().equals(item.getDescription())
+                && getCategory().equals(item.getCategory())
+                && getPrice() == item.getPrice()) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
